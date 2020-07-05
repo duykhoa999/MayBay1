@@ -1,5 +1,5 @@
 #include <iostream>
-#define MAX 300
+#define MAXLIST 300
 
 struct maybay{
 	char soHieuMayBay[20];
@@ -17,6 +17,14 @@ typedef struct nodeMayBay* NODEMAYBAY;
 
 struct ListMayBay{
 	int n = 0;
-	NODEMAYBAY nodeMB[MAX];
+	NODEMAYBAY NodeMayBay[MAXLIST];
 };
 typedef ListMayBay listMayBay;
+
+mayBay nhap();
+
+void xuat(mayBay mb);
+
+int fullDS (listMayBay lmb);
+
+void insertNode (listMayBay &lmb, mayBay mb);
