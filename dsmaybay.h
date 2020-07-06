@@ -28,3 +28,10 @@ void xuat(mayBay mb);
 int fullDS (listMayBay lmb);
 
 void insertNode (listMayBay &lmb, mayBay mb);
+
+void chuanHoaChuoi (char st[100], int &l);
+
+int checkNhapKyTu (char *a);
+
+bool kiemTraTrung(listMayBay lmb, char *s);
+
