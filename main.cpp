@@ -18,6 +18,7 @@ int main()
 		mb = nhap();
 		insertNode(lmb,mb);
 	}
+
 	cout<<"\n\n\n\nDanh sach vua nhap la!"<<endl;
 	for (int i = 0; i < lmb.n; i++)
 	{
