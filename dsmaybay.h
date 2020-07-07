@@ -33,5 +33,9 @@ void chuanHoaChuoi (char st[100], int &l);
 
 int checkNhapKyTu (char *a);
 
-bool kiemTraTrung(listMayBay lmb, char *s);
+int searchNodeMB(listMayBay lmb, char *s);
+
+void deleteNode(listMayBay &lmb, int i);
+
+void updateNode(listMayBay lmb, int i);
 
