@@ -4,6 +4,8 @@
 #include "dsmaybay.h"
 #include "mylib.h"
 
+//thieu buoc kiem tra chuyen bay da khoi hanh chua khi xoá
+
 using namespace std;
 
 mayBay nhap(listMayBay &lmb, mayBay &mb) 
