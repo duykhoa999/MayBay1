@@ -21,7 +21,7 @@ struct ListMayBay{
 };
 typedef ListMayBay listMayBay;
 
-mayBay nhap();
+mayBay nhap(listMayBay &lmb, mayBay &mb);
 
 void xuat(mayBay mb);
 
@@ -37,5 +37,11 @@ int searchNodeMB(listMayBay lmb, char *s);
 
 void deleteNode(listMayBay &lmb, int i);
 
-void updateNode(listMayBay lmb, int i);
+void updateNode(listMayBay &lmb, int i);
+
+void nhapSoHieu(listMayBay &lmb, char *soHieu);
+
+void nhapLoaiMB(listMayBay &lmb, char *loaiMB);
+
+void menu(listMayBay &lmb, mayBay &mb);
 
