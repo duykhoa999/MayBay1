@@ -1,5 +1,23 @@
 #include <iostream>
 #include "date.h"
+#define MAXLISTVE 200
+
+struct ve {
+	char soVe[5];
+	char soCMND[10];
+};
+typedef ve Ve;
+
+struct NodeVe {
+	Ve data;
+};
+typedef nodeVe nodeVe;
+
+struct danhsachve {
+	int n = 0;
+	nodeVe dsVe[MAXLISTVE];
+};
+typedef danhsachve danhSachVe;
 
 struct chuyenbay {
 	char maChuyenBay[20];
@@ -7,6 +25,7 @@ struct chuyenbay {
 	char sanBayDen[50];
 	int trangThai;
 	char soHieuMayBay[20];
+	danhSachVe listVe;
 };
 typedef chuyenbay chuyenBay;
 
