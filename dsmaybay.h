@@ -19,7 +19,7 @@ struct ListMayBay{
 	int n = 0;
 	NODEMAYBAY NodeMayBay[MAXLIST];
 };
-typedef ListMayBay listMayBay;
+typedef struct ListMayBay listMayBay;
 
 mayBay nhap(listMayBay &lmb, mayBay &mb);
 
