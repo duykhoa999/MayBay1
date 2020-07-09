@@ -1,7 +1,7 @@
 #include <iostream>
 
 struct hanhkhach {
-	int CMND;
+	char soCMND[12];
 	char ho[50];
 	char ten[10];
 	int phai;
