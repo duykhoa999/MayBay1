@@ -2,17 +2,16 @@
 
 struct hanhkhach {
 	int CMND;
-	char ho[8];
-	char tendem[8];
-	char ten[8];
+	char ho[50];
+	char ten[10];
 	int phai;
 };
-typedef hanhkhach hanhKhach;
+typedef struct hanhkhach hanhKhach;
 
 struct nodeHanhKhach {
 	hanhKhach data;
 	struct nodeHanhKhach *Left;
 	struct nodeHanhKhach *Right;
 };
-typedef nodeHanhKhach NodeHanhKhach;
-typedef NodeHanhKhach* TREEhanhkhach;
+typedef struct nodeHanhKhach NodeHanhKhach;
+typedef struct NodeHanhKhach* TREEhanhkhach;

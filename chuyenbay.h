@@ -4,39 +4,40 @@
 
 struct ve {
 	char soVe[5];
-	char soCMND[10];
+	char soCMND[12];
 };
-typedef ve Ve;
+typedef struct ve Ve;
 
 struct NodeVe {
 	Ve data;
 };
-typedef nodeVe nodeVe;
+typedef struct nodeVe nodeVe;
 
 struct danhsachve {
 	int n = 0;
-	nodeVe dsVe[MAXLISTVE];
+	nodeVe *dsVe;
 };
-typedef danhsachve danhSachVe;
+typedef struct danhsachve danhSachVe;
 
 struct chuyenbay {
 	char maChuyenBay[20];
 	NGAY_THANG ngayKhoiHanh;
+	NGAY_THANG gioKhoiHanh;
 	char sanBayDen[50];
 	int trangThai;
 	char soHieuMayBay[20];
 	danhSachVe listVe;
 };
-typedef chuyenbay chuyenBay;
+typedef struct chuyenbay chuyenBay;
 
 struct nodeChuyenBay {
 	chuyenBay data;
 	struct nodeChuyenBay *next;
 };
-typedef nodeChuyenBay* PTRChuyenBay;
+typedef struct nodeChuyenBay* PTRChuyenBay;
 
 struct Linked_List {
 	int n = 0;
 	PTRChuyenBay First = NULL;
 };
-typedef Link_List listChuyenBay;
+typedef struct Link_List listChuyenBay;

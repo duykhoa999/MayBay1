@@ -16,5 +16,7 @@ struct NgayThang
 	 int ngay;
 	 int thang;
 	 int nam;
+	 int gio;
+	 int phut;
 };
 typedef struct NgayThang NGAY_THANG;
