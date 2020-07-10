@@ -15,7 +15,7 @@ typedef struct nodeVe nodeVe;
 
 struct danhsachve {
 	int n = 0;
-	nodeVe *dsVe;
+	nodeVe* dsVe;
 };
 typedef struct danhsachve danhSachVe;
 

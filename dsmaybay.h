@@ -1,5 +1,8 @@
 #include <iostream>
+#include <string>
 #define MAXLIST 300
+
+using namespace std;
 
 struct maybay{
 	char soHieuMayBay[20];
@@ -44,4 +47,8 @@ void nhapSoHieu(listMayBay &lmb, char *soHieu);
 void nhapLoaiMB(listMayBay &lmb, char *loaiMB);
 
 void menu(listMayBay &lmb, mayBay &mb);
+
+void readFile(listMayBay &lmb);
+
+void writeFile (listMayBay lmb);
 
