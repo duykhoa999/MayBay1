@@ -1,8 +1,9 @@
 #include <iostream>
-#include <string.h>
+#include <string>
 #include <conio.h>
 #include "dsmaybay.h"
 #include "mylib.h"
+#include <fstream>
 
 //thieu buoc kiem tra chuyen bay da khoi hanh chua khi xoá
 
@@ -239,7 +240,7 @@ void menu(listMayBay &lmb, mayBay &mb)
 				} while (true);
 				break;
 			case 2:
-				cout<<"\n\n\n\nDanh sach vua nhap la!"<<endl;
+				cout<<"\n\n\n\nDanh sach may bay!"<<endl;
 				for (int i = 0; i < lmb.n; i++)
 				{
 					cout<<"\n\nMay bay thu "<<i+1<<"!";
@@ -285,9 +286,56 @@ void menu(listMayBay &lmb, mayBay &mb)
 				}
 				break;
 		}
-//		cout<<"Ban muon hieu chinh nua khong(y/n)?";
-//		cin>>kt;
-//		if (kt == "n") break;
 	} while(luachon != 5);
+}
+
+void readFile(listMayBay &lmb)
+{
+	ifstream fileInput;
+	mayBay mb;
+	string temp;
+	char c[200];
+	fileInput.open("dsmaybay.txt",ios::in);
+	
+	if (fileInput.fail())
+	{
+		cout<<"Fail to open this file";
+	}
+	int n = 0;
+	fileInput>>n;
+	getline(fileInput,temp);
+	for (int i = 0; i < n; i++)
+	{	
+		getline(fileInput,temp);
+		fileInput.getline(c,200);
+		strcpy(mb.soHieuMayBay,c);
+		fileInput.getline(c,200);
+		strcpy(mb.loaiMayBay,c);
+		fileInput.getline(c,200);
+		mb.soDay = atoi(c);
+		fileInput.getline(c,200);
+		mb.soDong = atoi(c);
+		insertNode(lmb,mb);	
+	}
+		
+	fileInput.close();
+}
+
+void writeFile (listMayBay lmb)
+{
+	ofstream fileOutput;
+	string temp;
+	fileOutput.open("dsmaybay.txt",ios::out);
+	fileOutput<<lmb.n<<endl;
+	for(int i = 0; i<lmb.n;i++)
+	{
+		fileOutput<<temp<<endl;
+		fileOutput<<lmb.NodeMayBay[i]->data.soHieuMayBay<<endl;	
+		fileOutput<<lmb.NodeMayBay[i]->data.loaiMayBay<<endl;	
+		fileOutput<<lmb.NodeMayBay[i]->data.soDay<<endl;	
+		fileOutput<<lmb.NodeMayBay[i]->data.soDong<<endl;	
+	}
+	fileOutput.close();
+	
 }
 
