@@ -4,7 +4,7 @@
 
 struct ve {
 	char soVe[5];
-	char soCMND[10];
+	char soCMND[12];
 };
 typedef ve Ve;
 
