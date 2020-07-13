@@ -1,5 +1,8 @@
+#pragma once
 #include <iostream>
 #include <string>
+#include <conio.h>
+#include <fstream>
 #define MAXLIST 300
 
 using namespace std;
@@ -24,25 +27,25 @@ struct ListMayBay{
 };
 typedef struct ListMayBay listMayBay;
 
-mayBay nhap(listMayBay &lmb, mayBay &mb);
+mayBay nhapMayBay(listMayBay &lmb, mayBay &mb);
 
-void xuat(mayBay mb);
+void xuatMayBay(mayBay mb);
 
 int fullDS (listMayBay lmb);
 
-void insertNode (listMayBay &lmb, mayBay mb);
+void insertNodeMB(listMayBay &lmb, mayBay mb);
 
-void chuanHoaChuoi (char st[100], int &l);
+void chuanHoaChuoi(char st[100], int &l);
 
-int checkNhapKyTu (char *a);
+int checkNhapKyTu(char *a);
 
 int searchNodeMB(listMayBay lmb, char *s);
 
-void deleteNode(listMayBay &lmb, int i);
+void deleteNodeMB(listMayBay &lmb, int i);
 
-void updateNode(listMayBay &lmb, int i);
+void updateNodeMB(listMayBay &lmb, int i);
 
-void nhapSoHieu(listMayBay &lmb, char *soHieu);
+void nhapSoHieuMB(listMayBay &lmb, char *soHieu);
 
 void nhapLoaiMB(listMayBay &lmb, char *loaiMB);
 
