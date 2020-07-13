@@ -1,8 +1,6 @@
-#include<stdlib.h>
 #include <time.h>
 #include <ctime>
 #include <stdio.h>
-#include <stdlib.h>
 #include <iostream>
 
 using std::cout;

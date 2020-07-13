@@ -1,6 +1,10 @@
 #include <iostream>
 #include "date.h"
+#include <string.h>
 #define MAXLISTVE 200
+#include "dsmaybay.h"
+
+using namespace std;
 
 struct ve {
 	char soVe[5];
@@ -30,14 +34,29 @@ struct chuyenbay {
 };
 typedef struct chuyenbay chuyenBay;
 
-struct nodeChuyenBay {
+struct listChuyenBay {
 	chuyenBay data;
-	struct nodeChuyenBay *next;
+	struct listChuyenBay *next;
 };
-typedef struct nodeChuyenBay* PTRChuyenBay;
+typedef struct listChuyenBay* PTRListChuyenBay;
 
-struct Linked_List {
-	int n = 0;
-	PTRChuyenBay First = NULL;
-};
-typedef struct Link_List listChuyenBay;
+chuyenBay nhapChuyenBay(PTRListChuyenBay &First, chuyenBay &cb, listMayBay lmb);
+
+void xuatChuyenBay(chuyenBay cb);
+
+void insertNodeCB(PTRListChuyenBay &First, chuyenBay cb);
+
+void traverseCB(PTRListChuyenBay First);
+
+//void danhSachVe (PTRListChuyenBay pCB, chuyenBay cb);
+
+bool searchNodeCB(PTRListChuyenBay First, char *s);
+
+void nhapSoHieuCB(listMayBay &lmb, char *soHieu);
+
+void nhapMaCB(PTRListChuyenBay &First, char *MaCB);
+
+NGAY_THANG nhapNgayThangNam();
+
+NGAY_THANG nhapGioKhoiHanh();
+

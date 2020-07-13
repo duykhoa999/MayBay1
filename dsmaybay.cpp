@@ -1,18 +1,14 @@
-#include <iostream>
-#include <string>
-#include <conio.h>
 #include "dsmaybay.h"
 #include "mylib.h"
-#include <fstream>
 
 //thieu buoc kiem tra chuyen bay da khoi hanh chua khi xoá
 
 using namespace std;
 
-mayBay nhap(listMayBay &lmb, mayBay &mb) 
+mayBay nhapMayBay(listMayBay &lmb, mayBay &mb) 
 {
 	
-	nhapSoHieu(lmb,mb.soHieuMayBay);
+	nhapSoHieuMB(lmb,mb.soHieuMayBay);
 	
 	nhapLoaiMB(lmb,mb.loaiMayBay);
 	
@@ -68,12 +64,14 @@ void nhapLoaiMB(listMayBay &lmb, char *loaiMB)
 	} while(checkNhapKyTu(loaiMB) != 1);
 }
 
-void nhapSoHieu(listMayBay &lmb, char *soHieu)
+void nhapSoHieuMB(listMayBay &lmb, char *soHieu)
 {
 	Nhap:
 		fflush(stdin);
 		cout<<"Nhap so hieu may bay: ";
 		gets(soHieu);
+		int l = strlen(soHieu);
+		chuanHoaChuoi(soHieu,l);
 		if (searchNodeMB(lmb,soHieu) >= 0)
 		{
 			cout<<"So hieu nay da ton tai. Vui long nhap lai!"<<endl;
@@ -88,15 +86,10 @@ void nhapSoHieu(listMayBay &lmb, char *soHieu)
 		{
 			cout<<"Khong duoc de trong. Vui long nhap lai!"<<endl;
 			goto Nhap;
-		} 
-		else
-		{
-			int l = strlen(soHieu);
-			chuanHoaChuoi(soHieu,l);
 		}
 }
 
-void deleteNode(listMayBay &lmb, int i) 
+void deleteNodeMB(listMayBay &lmb, int i) 
 {
 	int j;
 	
@@ -107,7 +100,7 @@ void deleteNode(listMayBay &lmb, int i)
 	lmb.n--;
 }
 
-void updateNode(listMayBay &lmb, int i)
+void updateNodeMB(listMayBay &lmb, int i)
 {
 	int luachon;
 	mayBay mb;
@@ -116,7 +109,7 @@ void updateNode(listMayBay &lmb, int i)
 	{
 		clrscr();
 		cout<<"\n\nThong tin may bay"<<endl;
-		xuat(lmb.NodeMayBay[i]->data);
+		xuatMayBay(lmb.NodeMayBay[i]->data);
 		cout<<"\n\nBan muon hieu chinh thong tin nao?"<<endl;		
 		cout<<"1. So hieu may bay"<<endl;
 		cout<<"2. Loai may bay"<<endl;
@@ -131,7 +124,7 @@ void updateNode(listMayBay &lmb, int i)
 			case 1:
 				fflush(stdin);
 				cout<<"Nhap lai thong tin can chinh sua!"<<endl;
-				nhapSoHieu(lmb,mb.soHieuMayBay);
+				nhapSoHieuMB(lmb,mb.soHieuMayBay);
 				break;
 			case 2:
 				fflush(stdin);
@@ -159,27 +152,39 @@ void updateNode(listMayBay &lmb, int i)
 
 void chuanHoaChuoi (char st[100], int &l)
 {
-	int i;
-	while (st[0] == ' ')
-		strcpy(st,st+1);
-	l=strlen (st);
-	while(st[l-1] == ' ')
+	for (int i = 0; i<l;i++)
 	{
-		strcpy(st+l-1,st+l);
-		l--;
-	}
-	while (st[i] != '\0')
-	{
-		if (st[i] == ' ')
-			if (st[i+1] == ' ')
+		if (st[i] == 32)
+		{
+			for (int j = i; j<l; j++)
 			{
-				strcpy(st+i,st+i+1);
+				st[j] = st[j+1];
 				i--;
-				l--;
 			}
-			else i++;
-	i++;
+		}
 	}
+	
+//	int i;
+//	while (st[0] == ' ')
+//		strcpy(st,st+1);
+//	l=strlen (st);
+//	while(st[l-1] == ' ')
+//	{
+//		strcpy(st+l-1,st+l);
+//		l--;
+//	}
+//	while (st[i] != '\0')
+//	{
+//		if (st[i] == ' ')
+//			if (st[i+1] == ' ')
+//			{
+//				strcpy(st+i,st+i+1);
+//				i--;
+//				l--;
+//			}
+//			else i++;
+//	i++;
+//	}
 }
 
 int fullDS (listMayBay lmb) 
@@ -187,7 +192,7 @@ int fullDS (listMayBay lmb)
 	return lmb.n == MAXLIST;
 }
 
-void insertNode(listMayBay &lmb, mayBay mb)
+void insertNodeMB(listMayBay &lmb, mayBay mb)
 {
 	NODEMAYBAY nmb;
 	nmb = new nodeMB;
@@ -202,7 +207,7 @@ void insertNode(listMayBay &lmb, mayBay mb)
 	
 }
 
-void xuat(mayBay mb)
+void xuatMayBay(mayBay mb)
 {
 	cout<<"\nSo hieu may bay: "<<mb.soHieuMayBay<<endl;
 	cout<<"Loai may bay: "<<mb.loaiMayBay<<endl;
@@ -232,8 +237,8 @@ void menu(listMayBay &lmb, mayBay &mb)
 				do
 				{
 					cout<<"\nNhap thong tin may bay!"<<endl;
-					mb = nhap(lmb,mb);
-					insertNode(lmb,mb);
+					mb = nhapMayBay(lmb,mb);
+					insertNodeMB(lmb,mb);
 					cout<<"Ban muon nhap nua khong(y/n)?";
 					cin>>kt;
 					if (kt == "n") break;
@@ -244,7 +249,7 @@ void menu(listMayBay &lmb, mayBay &mb)
 				for (int i = 0; i < lmb.n; i++)
 				{
 					cout<<"\n\nMay bay thu "<<i+1<<"!";
-					xuat(lmb.NodeMayBay[i]->data);
+					xuatMayBay(lmb.NodeMayBay[i]->data);
 				}
 				cout<<"\nNhan Enter de ve lai menu!";
 				getch();
@@ -260,7 +265,7 @@ void menu(listMayBay &lmb, mayBay &mb)
 				}
 				else 
 				{
-					updateNode(lmb,searchNodeMB(lmb,s));
+					updateNodeMB(lmb,searchNodeMB(lmb,s));
 					getch();
 				}
 				break;
@@ -279,7 +284,7 @@ void menu(listMayBay &lmb, mayBay &mb)
 					cin>>kt;
 					if (kt == "y")
 					{
-						deleteNode(lmb,searchNodeMB(lmb,s));
+						deleteNodeMB(lmb,searchNodeMB(lmb,s));
 						cout<<"\nXoa thanh cong! Nhan Enter de ve menu!";
 						getch();
 					}
@@ -315,7 +320,7 @@ void readFile(listMayBay &lmb)
 		mb.soDay = atoi(c);
 		fileInput.getline(c,200);
 		mb.soDong = atoi(c);
-		insertNode(lmb,mb);	
+		insertNodeMB(lmb,mb);	
 	}
 		
 	fileInput.close();
