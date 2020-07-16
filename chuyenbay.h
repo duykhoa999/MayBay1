@@ -48,6 +48,8 @@ void insertNodeCB(PTRListChuyenBay &First, chuyenBay cb);
 
 void traverseCB(PTRListChuyenBay First);
 
+void deleteNodeCB(PTRListChuyenBay &First);
+
 //void danhSachVe (PTRListChuyenBay pCB, chuyenBay cb);
 
 bool searchNodeCB(PTRListChuyenBay First, char *s);
