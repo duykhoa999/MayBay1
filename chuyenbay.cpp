@@ -47,10 +47,89 @@ void traverseCB(PTRListChuyenBay First)
 	}
 }
 
-//void danhSachVe (PTRListChuyenBay pCB, chuyenBay cb)
-//{
-//	char day[24] = {'A','B','C','D','E','F','G','H','I'};
-//}
+void deleteNodeCB(PTRListChuyenBay &First)
+{
+	char maChuyenBay[20];
+	PTRListChuyenBay p;
+	string kt;
+	Xoatiep	 :
+		cout << "\nMa chuyen bay vien muon xoa :" ;
+		fflush(stdin); 
+		gets(maChuyenBay);
+		
+		if (stricmp(First->data.maChuyenBay,maChuyenBay) == 0)
+		{
+			cout<<"Ban co that su muon xoa hay khong (Y/N)?";
+			cin>>kt;
+			if (kt == "y") 
+			{
+				PTRListChuyenBay p = First;
+				First = p ->next ; 
+				delete p;
+				cout<<"Xoa thanh cong! Ban co muon xoa nua khong(y/n)?";
+				cin>>kt;
+				if (kt == "y")
+				{
+					goto Xoatiep;
+				}
+				return;
+			}
+			else
+			{
+				cout<<"Ban co muon xoa nua khong(y/n)?";
+				cin>>kt;
+				if (kt == "y")
+				{
+					goto Xoatiep;
+				}
+				return;
+			}
+		}
+		for(p = First; p->next != NULL && stricmp(p->next->data.maChuyenBay, maChuyenBay) != 0; p = p->next);
+		if (p->next!=NULL)
+		{
+			cout<<"Ban co that su muon xoa hay khong (Y/N)?";
+			cin>>kt;
+			if (kt == "y") 
+			{
+				PTRListChuyenBay q = p->next ;
+				p->next= q->next;
+				delete q;
+				cout<<"Xoa thanh cong! Ban co muon xoa nua khong(y/n)?";
+				cin>>kt;
+				if (kt == "y")
+				{
+					goto Xoatiep;
+				}
+				return;
+			}
+			else
+			{
+				cout<<"Ban co muon xoa nua khong(y/n)?";
+				cin>>kt;
+				if (kt == "y")
+				{
+					goto Xoatiep;
+				}
+				return;
+			}
+		}
+		else 
+		{
+			cout << "Ma chuyen bay muon xoa khong ton tai. Ban co muon xoa nua khong(y/n)?";
+			cin>>kt;
+			if (kt == "y")
+			{
+				goto Xoatiep;
+			}
+		}
+		return;
+}
+
+void danhSachVe (PTRListChuyenBay pCB, chuyenBay cb)
+{
+	char day[24] = {'A','B','C','D','E','F','G','H','I'};
+}
 
 bool searchNodeCB(PTRListChuyenBay First, char *s)
 {

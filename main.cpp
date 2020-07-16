@@ -24,7 +24,9 @@ int main()
 		cout<<"Ban muon nhap nua khong(y/n)?";
 		cin>>kt;
 		if (kt == "n") break;
-	} while (true);	
+	} while (true);
+	traverseCB(First);
+	deleteNodeCB(First);
 	traverseCB(First);
 	
 	return 0;
