@@ -15,4 +15,4 @@ struct nodeHanhKhach {
 	struct nodeHanhKhach *Right;
 };
 typedef nodeHanhKhach NodeHanhKhach;
-typedef no
+typedef NodeHanhKhach* TREEhanhkhach;
