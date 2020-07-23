@@ -126,9 +126,60 @@ void deleteNodeCB(PTRListChuyenBay &First)
 		return;
 }
 
-void danhSachVe (PTRListChuyenBay pCB, chuyenBay cb)
+//void DSVe1 ()
+//{	
+//	char x[5] = "ABCD";
+//	char temp[4];
+//	int i = 2;
+//	char array[3];
+//	itoa(i,array,10);
+//	temp[0] = x[0];
+//	temp[1] = '\0';
+////	temp[1] = array[0];
+////	temp[2] = array[1];
+//	strcat(temp, "0");
+//	strcat(temp,array);
+//	cout<<temp;
+//	
+//}
+
+void DSVe (listMayBay lmb, chuyenBay &cb)
 {
-	char day[24] = {'A','B','C','D','E','F','G','H','I'};
+	char day[26] = "ABCDEFGHIJKLMN";
+	char temp[4];
+	int tempSDay = lmb.NodeMayBay[searchNodeMB(lmb,cb.soHieuMayBay)]->data.soDay;
+	int tempSDong = lmb.NodeMayBay[searchNodeMB(lmb,cb.soHieuMayBay)]->data.soDong;
+	cb.listVe.dsVe = new nodeVe[tempSDay*tempSDong];
+	int k = 0;
+	for (int i = 0; i< tempSDay; i++)
+	{
+		temp[0] = day[i];
+		for (int j = 1; j <= tempSDong; j++)
+		{
+			if (j < 10)
+			{
+				
+				char array[3];
+				temp[1] = '\0';
+				strcat(temp,"0");
+				itoa(j, array, 10);
+				strcat(temp,array);
+			}
+			else
+			{
+				char array[3];
+				temp[1] = '\0';
+				itoa(j, array, 10);
+				strcat(temp, array);
+			}
+			strcpy(cb.listVe.dsVe[k].data.soVe,temp);
+			//cb.listVe.dsVe[k].data.soVe
+			//cb.listVe.dsVe++;
+//			cout<<cb.listVe.dsVe[k].data.soVe<<endl;
+			cb.listVe.n++;
+			k++;
+		}
+	}
 }
 
 bool searchNodeCB(PTRListChuyenBay First, char *s)
