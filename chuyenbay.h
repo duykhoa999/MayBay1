@@ -1,6 +1,7 @@
 #include <iostream>
 #include "date.h"
 #include <string.h>
+#include <stdlib.h>
 #define MAXLISTVE 200
 #include "dsmaybay.h"
 
@@ -15,7 +16,7 @@ typedef struct ve Ve;
 struct NodeVe {
 	Ve data;
 };
-typedef struct nodeVe nodeVe;
+typedef struct NodeVe nodeVe;
 
 struct danhsachve {
 	int n = 0;
@@ -50,7 +51,9 @@ void traverseCB(PTRListChuyenBay First);
 
 void deleteNodeCB(PTRListChuyenBay &First);
 
-//void danhSachVe (PTRListChuyenBay pCB, chuyenBay cb);
+void DSVe(listMayBay lmb, chuyenBay &cb);
+
+void DSVe1();
 
 bool searchNodeCB(PTRListChuyenBay First, char *s);
 
