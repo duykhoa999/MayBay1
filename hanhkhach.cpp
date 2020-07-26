@@ -98,6 +98,7 @@ int timTrungHK(TREEhanhkhach t, char* soCMND)
 			timTrungHK(t->Right, soCMND);
 		}
 	}
+	return 0;
 }
 
 int checkNhapKyTuHK(char* a)
@@ -220,32 +221,37 @@ void nhapPhai(TREEhanhkhach t, int &phai)
 	}
 }
 
-void taoCay(TREEhanhkhach &t)
+void nhapHanhKhach(TREEhanhkhach &t, hanhKhach p)
+{
+	system("cls");
+	cout << "\t\tNHAP THONG TIN KHACH HANG\n";
+	cout << "\t\t\t(q - thoat)\n\n";
+	fflush(stdin);
+	/*cout << "So CMND: ";
+	cin.getline(p.soCMND, 12);*/
+	nhapSoCMND(t, p.soCMND);
+	if (stricmp(p.soCMND, "q") == 0)
+	{
+		return;
+	}
+	/*cout << "Ho: ";
+	cin.getline(p.ho, 50);
+	cout << "Ten: ";
+	cin.getline(p.ten, 10);*/
+	nhapHo(t, p.ho);
+	nhapTen(t, p.ten);
+	nhapPhai(t, p.phai);
+	
+	themNode(t, p);
+}
+
+void nhapDanhSachHK(TREEhanhkhach &t)
 {
 	char key;
+	hanhKhach p;
 	do
 	{
-		system("cls");
-		cout << "\t\tNHAP THONG TIN KHACH HANG\n";
-		cout << "\t\t\t(q - thoat)\n\n";
-		hanhKhach p;
-		fflush(stdin);
-		/*cout << "So CMND: ";
-		cin.getline(p.soCMND, 12);*/
-		nhapSoCMND(t, p.soCMND);
-		if (stricmp(p.soCMND, "q") == 0)
-		{
-			break;
-		}
-		/*cout << "Ho: ";
-		cin.getline(p.ho, 50);
-		cout << "Ten: ";
-		cin.getline(p.ten, 10);*/
-		nhapHo(t, p.ho);
-		nhapTen(t, p.ten);
-		nhapPhai(t, p.phai);
-		
-		themNode(t, p);
+		nhapHanhKhach(t, p);
 		
 		cout << "\nBan co muon tiep tuc nhap khong (Y/N)?";
 		key = getch();
@@ -612,6 +618,8 @@ void menuHK()
 	
 	TREEhanhkhach t;
 	
+	hanhKhach p;
+	
 	khoiTao(t);
 	
 	loadHK(t);
@@ -634,7 +642,7 @@ void menuHK()
 			case 1:
 				{
 					system("cls");
-					taoCay(t);
+					nhapDanhSachHK(t);
 					saveHK(t);
 					break;
 				}
@@ -652,34 +660,12 @@ void menuHK()
 				}
 			case 3:
 				{
-					system("cls");
-					cout << "\t\tTHEM HANH KHACH\n";
-					cout << "\t\t  (q - thoat)\n\n";
-					hanhKhach p;
-					/*fflush(stdin);
-					cout << "\tSo CMND: ";
-					cin.getline(p.soCMND, 12);*/
-					nhapSoCMND(t, p.soCMND);
-					if (stricmp(p.soCMND, "q") == 0)
-					{
-						break;
-					}
-					/*cout << "\tHo: ";
-					cin.getline(p.ho, 50);
-					cout << "\tTen: ";
-					cin.getline(p.ten, 10);
-					cout << "\tPhai (1 - Nam, 2 - Nu): ";
-					cin >> p.phai;*/
-					nhapHo(t, p.ho);
-					nhapTen(t, p.ten);
-					nhapPhai(t, p.phai);
 					
-					themNode(t, p);
-					
+					nhapHanhKhach(t,p);
+					cout << "\n===> THEM THANH CONG! BAM ENTER DE VE MENU!\n\n";
+					getch();
 					saveHK(t);
 					
-					cout << "\n===> THEM THANH CONG!\n\n";
-					system("pause");
 					break;
 				}
 			case 4:

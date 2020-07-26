@@ -41,7 +41,9 @@ TREEhanhkhach timKiemCay(TREEhanhkhach t, char* cmnd);
 
 void themNode(TREEhanhkhach &t, hanhKhach p);
 
-void taoCay(TREEhanhkhach &t);
+void nhapHanhKhach(TREEhanhkhach &t, hanhKhach p);
+
+void nhapDanhSachHK(TREEhanhkhach &t);
 
 void xuatCay(TREEhanhkhach t, int &stt); // theo thu tu NLR
 

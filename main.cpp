@@ -15,9 +15,7 @@ int main()
 	First = NULL;
 	mayBay mb;
 	listMayBay lmb;
-	readFile(lmb);
 //	menu(lmb,mb);
-//	writeFile(lmb);
 //	do
 //	{
 //		cout<<"\nNhap thong tin chuyen bay!"<<endl;
@@ -33,6 +31,7 @@ int main()
 //	{
 //		cout<<cb.listVe.dsVe[i].data.soVe<<endl;
 //	}
+//	menu(lmb,mb);
 	menuHK();
 //	traverseCB(First);
 //	deleteNodeCB(First);
