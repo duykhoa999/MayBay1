@@ -2,6 +2,7 @@
 #include <string.h>
 #include <fstream>
 #include "chuyenbay.h"
+#include "hanhkhach.h"
 
 using namespace std;
 
@@ -10,6 +11,7 @@ int main()
 	chuyenBay cb;
 	string kt;
 	PTRListChuyenBay First;
+	TREEhanhkhach t;
 	First = NULL;
 	mayBay mb;
 	listMayBay lmb;
@@ -25,12 +27,13 @@ int main()
 //		cin>>kt;
 //		if (kt == "n") break;
 //	} while (true);
-	gets(cb.soHieuMayBay);
-	DSVe(lmb,cb);
-	for(int i = 0; i < cb.listVe.n; i++)
-	{
-		cout<<cb.listVe.dsVe[i].data.soVe<<endl;
-	}
+//	gets(cb.soHieuMayBay);
+//	DSVe(lmb,cb);
+//	for(int i = 0; i < cb.listVe.n; i++)
+//	{
+//		cout<<cb.listVe.dsVe[i].data.soVe<<endl;
+//	}
+	menuHK();
 //	traverseCB(First);
 //	deleteNodeCB(First);
 //	traverseCB(First);
