@@ -220,6 +220,7 @@ void menu(listMayBay &lmb, mayBay &mb)
 	char s[20];
 	int luachon;
 	string kt;
+	readFile(lmb);
 	do
 	{
 		clrscr();
@@ -292,6 +293,8 @@ void menu(listMayBay &lmb, mayBay &mb)
 				break;
 		}
 	} while(luachon != 5);
+	writeFile(lmb);
+	cout<<"Thoat chuong trinh....";
 }
 
 void readFile(listMayBay &lmb)
